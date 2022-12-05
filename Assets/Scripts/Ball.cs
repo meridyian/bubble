@@ -9,7 +9,8 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rb;
     void Start()
     {
-        
+        //
+        rb.AddForce(startForce, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
