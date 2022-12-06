@@ -23,7 +23,8 @@ public class Ball : MonoBehaviour
             //transofrm.position always gives z axis
             GameObject ball1 = Instantiate(nextball, rb.position + Vector2.right / 4f, Quaternion.identity);
             GameObject ball2 = Instantiate(nextball, rb.position + Vector2.left/ 4f, Quaternion.identity);
-
+            
+            // 
             ball1.GetComponent<Ball>().startForce = new Vector2(2f, 5f);
             ball2.GetComponent<Ball>().startForce = new Vector2(-2f, 5f);
         }
