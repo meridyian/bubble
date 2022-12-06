@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -7,15 +8,22 @@ public class Ball : MonoBehaviour
     //to give starting force
     public Vector2 startForce;
     public Rigidbody2D rb;
+    public GameObject nextball;
     void Start()
     {
-        //
+
         rb.AddForce(startForce, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame
-    void Update()
+    public void Split()
     {
-        
+        if (nextball != null)
+        {
+            //transofrm.position always gives z axis
+            Instantiate(nextball, rb.position + Vector2.right / 4f, Quaternion.identity);
+            Instantiate(nextball, rb.position + Vector2.left/ 4f, Quaternion.identity);
+        }
+        Destroy(gameObject);
     }
 }

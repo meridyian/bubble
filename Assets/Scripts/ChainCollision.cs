@@ -11,7 +11,7 @@ public class ChainCollision : MonoBehaviour
 
         if (col.tag == "Ball")
         {
-            
+            col.GetComponent<Ball>().Split();
         }
     }
 }
